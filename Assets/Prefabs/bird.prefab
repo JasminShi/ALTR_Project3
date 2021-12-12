@@ -81,7 +81,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5ddf104affee49a793845ad235cfeb0, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 5318699884056577201}
   - component: {fileID: 1775901445000426248}
   - component: {fileID: 1775901445000426249}
-  - component: {fileID: 396962452}
   m_Layer: 0
   m_Name: bird
   m_TagString: Untagged
@@ -399,20 +398,6 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!114 &396962452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469349017377244273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f5eb92c6a304527b7558e2607ae243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skinnedMeshRenderer: {fileID: 0}
-  highlightSpeed: 15
 --- !u!1 &1683667116983165154
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +448,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2092399edfd547c5ac981a15088f73d, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -647,7 +632,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5ddf104affee49a793845ad235cfeb0, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -734,7 +719,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2092399edfd547c5ac981a15088f73d, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -853,7 +838,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44c82927a8e2c4317bfe42d13725519c, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1017,7 +1002,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44c82927a8e2c4317bfe42d13725519c, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1064,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f5eb92c6a304527b7558e2607ae243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinnedMeshRenderer: {fileID: 1730007846723029124}
+  highlightableMaterial: {fileID: 0}
   highlightSpeed: 8
 --- !u!1 &3059109221041297847
 GameObject:
@@ -1454,7 +1439,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1547,7 +1532,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5ddf104affee49a793845ad235cfeb0, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1683,7 +1668,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44c82927a8e2c4317bfe42d13725519c, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1746,7 +1731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f5eb92c6a304527b7558e2607ae243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinnedMeshRenderer: {fileID: 6713870130860020330}
+  highlightableMaterial: {fileID: 0}
   highlightSpeed: 8
 --- !u!1 &6228584359280822269
 GameObject:
@@ -2108,7 +2093,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2092399edfd547c5ac981a15088f73d, type: 2}
+  - {fileID: 2100000, guid: dd5ff43cf52834b78b088b365e5b703a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

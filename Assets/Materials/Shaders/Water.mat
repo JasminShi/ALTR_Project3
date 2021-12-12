@@ -10,9 +10,9 @@ Material:
   m_Name: Water
   m_Shader: {fileID: -6465566751694194690, guid: 6293ad745d9d548e8a1f27dcd65a8658, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -103,11 +103,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_19856d0ea77747e6a04bacc6f4237c67: {r: 0.02745098, g: 0.074773744, b: 0.08627451, a: 1}
-    - Color_95ec2dc1386b4eb58bdc7de431de521f: {r: 0.049661797, g: 0.18673418, b: 0.33962262, a: 0}
-    - Vector2_03321e2421c947d28f6ed49fdf719980: {r: 19.07, g: 0, b: 0, a: 0}
+    - Color_19856d0ea77747e6a04bacc6f4237c67: {r: 0.16862746, g: 0.61960787, b: 0.7294118, a: 1}
+    - Color_95ec2dc1386b4eb58bdc7de431de521f: {r: 0, g: 0.8417855, b: 0.990566, a: 1}
+    - Vector2_03321e2421c947d28f6ed49fdf719980: {r: 15.06, g: 0.12, b: 2.4, a: 0}
     - Vector2_19a531a9b7cd4e6886e6b0a040a8beec: {r: 1.5, g: 0, b: 1.5, a: 0}
-    - Vector2_f8c11080f7d24fbfb27b2387d831acac: {r: 2.09, g: -4.22, b: 0, a: 0}
+    - Vector2_f8c11080f7d24fbfb27b2387d831acac: {r: 2.04, g: -4.22, b: 0, a: 2.29}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

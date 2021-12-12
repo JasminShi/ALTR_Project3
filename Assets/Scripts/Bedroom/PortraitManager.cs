@@ -10,6 +10,8 @@ public class PortraitManager : MonoBehaviour
 
     public AudioSource PortraitAudio;
 
+    //public GameObject Spotlight1;
+
     public UnityEvent OnFinished = new UnityEvent();
 
     bool hadStarted = false;
@@ -18,6 +20,7 @@ public class PortraitManager : MonoBehaviour
     {
         if (!hadStarted) 
         {
+            //Spotlight.SetActive(true);
             FrameHighlight.StartHighlight();
             PortraitAudio.Play();
             StartCoroutine(waitForAudioToEnd());
@@ -29,8 +32,8 @@ public class PortraitManager : MonoBehaviour
     {
         yield return new WaitForSeconds(PortraitAudio.clip.length);
         FrameHighlight.StopHighlight();
-
         OnFinished.Invoke();
     }
 
+ 
 }

@@ -5,16 +5,9 @@ using UnityEngine;
 public class HighlightController : MonoBehaviour
 {
     public Material highlightableMaterial;
-    public float highlightSpeed = 40.0f;
+    public float highlightSpeed = 1f;
 
     float currentHighlightAmount = 0.1f;
-
-
-    //private void Start()
-    //{
-    //    currentHighlightAmount = 1.0f;
-    //    highlightableMaterial.SetFloat("_GlowAmount", currentHighlightAmount);
-    //}
 
     public void StartHighlight()
     {
@@ -29,7 +22,7 @@ public class HighlightController : MonoBehaviour
 
             highlightableMaterial.SetFloat("_GlowAmount", currentHighlightAmount);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return null;
         }
     }
 

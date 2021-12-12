@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 
 public class BirdController : MonoBehaviour
@@ -53,6 +54,9 @@ public class BirdController : MonoBehaviour
     //    CTA_leave();
     //}
 
+    public UnityEvent OnFinished = new UnityEvent();
+
+    public BirdEndController BirdDissolve;
 
     private void Start()
     {
@@ -72,6 +76,7 @@ public class BirdController : MonoBehaviour
 
         Agent.SetDestination(CTA_portriatLocation.position);
         StartCoroutine(PlayBirdDialogue2());
+        StartCoroutine(waitForAudio2ToEnd());
 
     }
 
@@ -80,6 +85,7 @@ public class BirdController : MonoBehaviour
 
         Agent.SetDestination(CTA_leaveLocation.position);
         StartCoroutine(PlayBirdDialogue3());
+        StartCoroutine(waitForAudio3ToEnd());
 
     }
 
@@ -97,6 +103,7 @@ public class BirdController : MonoBehaviour
         transform.LookAt(userLocation.position, Vector3.up);
 
         birdDialogue3.Play();
+
     }
 
 
@@ -112,6 +119,7 @@ public class BirdController : MonoBehaviour
         }
     }
 
+
     //IEnumerator AlignWith(Transform rotation)
     //{
     //    while(Vector3.Dot(transform.forward, rotation.forward) < 1.0)
@@ -120,4 +128,17 @@ public class BirdController : MonoBehaviour
     //        yield return null;
     //    }
     //}
+
+    IEnumerator waitForAudio2ToEnd()
+    {
+        yield return new WaitForSeconds(birdDialogue2.clip.length);
+        //FrameHighlight.StopHighlight();
+        OnFinished.Invoke();
+    }
+
+    IEnumerator waitForAudio3ToEnd()
+    {
+        yield return new WaitForSeconds(birdDialogue3.clip.length);
+        BirdDissolve.StartDissolve();
+    }
 }

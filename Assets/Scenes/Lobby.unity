@@ -23,9 +23,9 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.7
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.9921569, g: 0.65882355, b: 0.5019608, a: 1}
+  m_SubtractiveShadowColor: {r: 1, g: 0.77867925, b: 0.6745283, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 20f6d22d93779de4ea6f62f8ab305593, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -33,8 +33,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 256
-  m_ReflectionBounces: 1
+  m_DefaultReflectionResolution: 512
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1803295999}
@@ -123,6 +123,131 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &66586746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66586748}
+  - component: {fileID: 66586747}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &66586747
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66586746}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 0.7803602, y: 1, z: 1}
+  - {x: 0.7803602, y: 1, z: -1}
+  - {x: 0.7803602, y: -1, z: 1}
+  - {x: 0.7803602, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 0.7803602, y: 1, z: 2.979332}
+  - {x: 0.7803602, y: -1, z: 2.979332}
+  - {x: -1, y: 1, z: 2.979332}
+  - {x: -1, y: -1, z: 2.979332}
+  - {x: 0.7803602, y: 1, z: 4.679267}
+  - {x: 0.7803602, y: -1, z: 4.679267}
+  - {x: -1, y: 1, z: 4.679267}
+  - {x: -1, y: -1, z: 4.679267}
+  - {x: 0.7803602, y: 1, z: 6.3536363}
+  - {x: 0.7803602, y: -1, z: 6.3536363}
+  - {x: -1, y: 1, z: 6.9441013}
+  - {x: -1, y: -1, z: 6.9441013}
+  - {x: 0.7803602, y: 1, z: 8.447908}
+  - {x: 0.7803602, y: -1, z: 8.447908}
+  - {x: -1, y: 1, z: 8.447908}
+  - {x: -1, y: -1, z: 8.447908}
+  - {x: -2.5370417, y: 1, z: 6.9441013}
+  - {x: -2.5370417, y: -1, z: 6.9441013}
+  - {x: -2.5370417, y: 1, z: 8.447908}
+  - {x: -2.5370417, y: -1, z: 8.447908}
+  - {x: -3.56246, y: 1, z: 6.9441013}
+  - {x: -3.56246, y: -1, z: 6.9441013}
+  - {x: -3.56246, y: 1, z: 8.447908}
+  - {x: -3.56246, y: -1, z: 8.447908}
+  - {x: -3.56246, y: 1, z: 6.9441013}
+  - {x: -3.56246, y: -1, z: 6.9441013}
+  - {x: -3.56246, y: 1, z: 8.447908}
+  - {x: -3.56246, y: -1, z: 8.447908}
+  - {x: -4.8034167, y: 1, z: 6.9441013}
+  - {x: -4.8034167, y: -1, z: 6.9441013}
+  - {x: -4.8034167, y: 1, z: 8.447908}
+  - {x: -4.8034167, y: -1, z: 8.447908}
+  - {x: -4.8034167, y: 1, z: 6.9441013}
+  - {x: -4.8034167, y: -1, z: 6.9441013}
+  - {x: -4.8034167, y: 1, z: 8.447908}
+  - {x: -4.8034167, y: -1, z: 8.447908}
+  - {x: -6.013865, y: 1, z: 6.9441013}
+  - {x: -6.013865, y: -1, z: 6.9441013}
+  - {x: -6.013865, y: 1, z: 8.447908}
+  - {x: -6.013865, y: -1, z: 8.447908}
+  - {x: -6.013865, y: 1, z: 6.9441013}
+  - {x: -6.013865, y: -1, z: 6.9441013}
+  - {x: -6.013865, y: 1, z: 8.447908}
+  - {x: -6.013865, y: -1, z: 8.447908}
+  - {x: -7.631211, y: 1, z: 6.9441013}
+  - {x: -7.631211, y: -1, z: 6.9441013}
+  - {x: -7.631211, y: 1, z: 8.447908}
+  - {x: -7.631211, y: -1, z: 8.447908}
+  - {x: -7.631211, y: 1, z: 6.9441013}
+  - {x: -7.631211, y: -1, z: 6.9441013}
+  - {x: -7.631211, y: 1, z: 8.447908}
+  - {x: -7.631211, y: -1, z: 8.447908}
+  - {x: -6.013865, y: 1, z: 9.931782}
+  - {x: -6.013865, y: -1, z: 9.931782}
+  - {x: -6.013865, y: 1, z: 9.931782}
+  - {x: -6.013865, y: -1, z: 9.931782}
+  - {x: -7.631211, y: 1, z: 9.931782}
+  - {x: -7.631211, y: -1, z: 9.931782}
+  - {x: -7.631211, y: 1, z: 9.931782}
+  - {x: -7.631211, y: -1, z: 9.931782}
+  - {x: -6.013865, y: 1, z: 11.076147}
+  - {x: -6.013865, y: -1, z: 11.076147}
+  - {x: -6.013865, y: 1, z: 11.076147}
+  - {x: -6.013865, y: -1, z: 11.076147}
+  - {x: -7.631211, y: 1, z: 11.076147}
+  - {x: -7.631211, y: -1, z: 11.076147}
+  - {x: -7.631211, y: 1, z: 11.076147}
+  - {x: -7.631211, y: -1, z: 11.076147}
+  - {x: -6.013865, y: 1, z: 12.336563}
+  - {x: -6.013865, y: -1, z: 12.336563}
+  - {x: -6.013865, y: 1, z: 12.336563}
+  - {x: -6.013865, y: -1, z: 12.336563}
+  - {x: -7.631211, y: 1, z: 12.336563}
+  - {x: -7.631211, y: -1, z: 12.336563}
+  - {x: -7.631211, y: 1, z: 12.336563}
+  - {x: -7.631211, y: -1, z: 12.336563}
+  m_Dering: 1
+--- !u!4 &66586748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66586746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.38, y: 1.02, z: -8.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &144343077
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +1023,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a10d489a4aae640cfa31318fabdf17f6, type: 2}
+  - {fileID: 2100000, guid: 64a79b858163c47efa7aa4c13ea92ed7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1403,7 +1528,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_CustomReticle: {fileID: 2137694467850139764, guid: eba6c5e915c2c4d5a8c09805bd7a1fe2, type: 3}
+  m_CustomReticle: {fileID: 9072544580190835350, guid: 00f6a6e55dad2459eb553ba7fbc136f3, type: 3}
   m_FirstHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1649,7 +1774,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27778
+  m_Name: pb_Mesh754832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2242,7 +2367,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: -0, z: -0, w: -0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -2331,7 +2456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STAND ON A START TO TELEPORT
+  m_Text: STAND ON A STAR TO TELEPORT
 --- !u!222 &1844039126
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DissolveAppear
-  m_Shader: {fileID: -6465566751694194690, guid: 2087579664236420798d64e20ef9f4aa, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b897c7ee3a2154fb49445b3a0e3df05f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -48,10 +48,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_922fb38c6d5546d78960299cc1228022: 0.9
     - Vector1_980f85650d2d4747b898f990b30ee075: 0
     - Vector1_a0f626fad6fa4b40b81e588a86092718: 1
     - Vector1_e1934235fac9454fb08ee09e70467d35: 0.011
+    - _DissolveAmount: 0
+    - _GlowAmount: 0
     m_Colors:
     - Color_54cf7e0bda0b447d887e61d77ae256fb: {r: 0, g: 0.14683744, b: 0.4433962, a: 0}
     - Color_8e66e3f0c43947d2bf94ad8fab53d78e: {r: 0.114587, g: 0.7844871, b: 0.9716981, a: 0}
+    - Color_e53dea998cd0498ca0d3004daa8a2a97: {r: 0, g: 7.20082, b: 6.264128, a: 0}
   m_BuildTextureStacks: []

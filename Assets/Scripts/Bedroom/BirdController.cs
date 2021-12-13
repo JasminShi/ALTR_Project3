@@ -15,11 +15,11 @@ public class BirdController : MonoBehaviour
 
     // waterGrab first, portraitActive next
 
-    public bool waterGrab;
-    public bool waterExit;
+    //public bool waterGrab;
+    //public bool waterExit;
 
-    public bool portraitActive;
-    public bool portraitDisactive;
+    //public bool portraitActive;
+    //public bool portraitDisactive;
 
     public Transform userLocation;
 
@@ -32,7 +32,10 @@ public class BirdController : MonoBehaviour
     public AudioSource birdDialogue2;
     public AudioSource birdDialogue3;
 
+    public float speed = 1.0f;
 
+    public Material dissolveMaterial;
+    float currentDissolveAmount = 0.0f;
 
     //reference to check whether each of the actions are complete
     //public checkWaterState waterState;
@@ -56,7 +59,7 @@ public class BirdController : MonoBehaviour
 
     public UnityEvent OnFinished = new UnityEvent();
 
-    public BirdEndController BirdDissolve;
+    public HighlightController BirdDissolve;
 
     private void Start()
     {
@@ -86,13 +89,13 @@ public class BirdController : MonoBehaviour
         Agent.SetDestination(CTA_leaveLocation.position);
         StartCoroutine(PlayBirdDialogue3());
         StartCoroutine(waitForAudio3ToEnd());
-
+        StartCoroutine(Dissolve(0.9f));
     }
 
     IEnumerator PlayBirdDialogue2()
     {
         yield return WaitForBirdToReachDesitnation();
-
+        yield return new WaitForSeconds(1);
         birdDialogue2.Play();
     }
 
@@ -139,6 +142,16 @@ public class BirdController : MonoBehaviour
     IEnumerator waitForAudio3ToEnd()
     {
         yield return new WaitForSeconds(birdDialogue3.clip.length);
-        BirdDissolve.StartDissolve();
+    }
+
+
+
+    IEnumerator Dissolve(float target)
+    {
+           
+            currentDissolveAmount = Mathf.MoveTowards(currentDissolveAmount, target, speed * Time.deltaTime);
+            dissolveMaterial.SetFloat("_DissolveAmount", currentDissolveAmount);
+            yield return null;
+
     }
 }

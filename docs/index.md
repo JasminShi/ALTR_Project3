@@ -1,7 +1,7 @@
 # Royal Choice
 
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
-![image](FrontPage.jpg)
+![image](FrontPage.JPEG)
 
 [Here]()is a video walkthrough of the VR experience.
 
@@ -26,7 +26,7 @@ In the basement, she discovers a room full of cages and learns that a special se
 After brainstorming the project idea, we wrote a brief list of features we want to develop over the next 7 weeks, agreed on the order of implementation and minimal requirements for the MVP. 
 
 [Project Proposal](https://docs.google.com/presentation/d/11PQFCiBJaEqtsZIy5RAeAoMv4BO3j1rK7nELosP6U7Q/edit?usp=sharing) can be viewed here. 
-[Shared Google Doc](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing)is a link to the detailed documentation of the 7-week progress.  
+[ALTR_Project 3](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing) is a link to the detailed documentation of the 7-week progress.  
 
 [The Plot Design for Royal Choice](https://docs.google.com/document/d/1Q0Mhou8_hozDh8bwGm4f6z0P6WRqtUP74pePDs9ogl4/edit?usp=sharing)
 
@@ -38,7 +38,7 @@ Marta started our project by creating her own resources using [Shapr3D Software]
 ## Lobby
 We have implemented a simple UI system in the lobby that shows the title, authors, and a brief instruction. We have designed the user path in a way that the user can learn to navigate in a VR environment, try the SnapTurn on turns, test RayCast interactions, and learn about the transitions between scenes that occur when the user stands on an emissive star.
 ![image](lobby.png)
-![image](lobby2.png)
+![image](lobby2.JPEG)
 
 
 ## Dream
@@ -72,23 +72,29 @@ public class DreamTransfer : MonoBehaviour
 
 ## Bedroom
 After the user wake up from the dream, they immediately hear the voice of the bird NPC which instructed her to reflect on her dream and lead her to the journey of explorinig the secrets behind her dream. Interactions are designed to instruct the users to move forward and get a better understanding of the background of the story. 
+
 ![image](BedroomEnter.png)
 ![image](BedroomExit.png)
 
 
 The main interactions are: 
+
 1). The user grasps and drinks the glass of magic baverage on the table. There are swallowing sounds and the baverage would disappear after "drinking" action.
+
 ![image](GlassSetting.png)
 
 2). The user looks at the portraits and the background story audio of each portrait plays. We use eye-centered interaction here so that the portraits' frames will be highlighted once the user focus on one portrait. The portraits are designed to play one by one and the user can not activate the next portrait unless the current portrait's audio is finished playing. 
 This is realized through the [Portrait Manager](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Bedroom/PortraitManager.cs)script. 
 The XR Eye-centered interaction is not enabled unless the previous event is finished. 
+
 Below is the settings in Unity. 
+
 ![image](FrameSetting1.png)
 ![image](FrameSetting2.png)
 ![image](FrameSetting3.png)
 
 3). The bird NPC walks from the table to the portraits and to the exit of the bedroom, which is scripted to walk as the story progresses. The bird NPC would turn to the user when speaking and idle when not moving. 
+
 This is realized through [BirdController](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Bedroom/BirdController.cs) script.
 
 Bird Facing position/rotation Control script: 
@@ -120,6 +126,7 @@ Marta designed the Bird NPC and added animations using mixamo.
  
 ## Corridor
 The corridor scene serves as a transition between the two narrative driven scenes. In this scene, we wanted the users to immerse themselves in the game's environment and aesthetics, while also trying to strengthen their sense of anticipation and curiosity. After adding the custom assets, we started scripting the movement of the platforms, which activates when the user stands on the emissive star. Marta encountered difficulties detecting collisions between the XR Rig and the Box colliders. After some time we changed the logic behind this interaction and added Teleport Anchor along with the Hover Exited events. We also created a custom Shader Graph for water, as well as added an element of fog, subtle sounds of earthquake and water to further enhance the sensational feeling.
+
 ![](images/corridor.png)
 ![](images/corridor2.PNG)
  
@@ -129,24 +136,66 @@ The Prison scene leads the user to the climax of the story through realizing the
 ![](images/Guard.png)
  
 The user is further told that the king keeps the birds for a greater good, which is directly the opposite of how the user feels when going through all the scenes witnessing the sufferings of the birds. Therefore, the moral dilemma is delivered here and pushes the story to a climax. The user is instructed to make a choice, seeing the two columns standing in front of her. The user has to choose by grabing each of the objects, which will lead to two different but similar ending.
-Both endings explains the losses and gains of each side through the form of debate from the bird and the guard. The ending illustrates that there is no good choice in such a  moral dilemma and we intend to let the user feel sorry and reflect on the past experience. 
+
+Both endings explains the losses and gains of each side through the form of debate from the bird and the guard. The ending illustrates that there is no good choice in such a moral dilemma and we intend to let the user feel sorry and reflect on the past experience. 
 
 There are many interactions in this scene as well. 
+
 1. The guard NPC and the lab report are triggered once the user steps into a certain trigger area. 
 2. The user can choose to proceed without listening to the full audio of each speaker as they are also encouraged to make an uninformed decision(which makes no difference to the ending). Therefore, the audio would stop playing once the user interacts with the next object.
-3. The NPC faces the user and follows the user wherever the user goes. 
+3. The NPC faces the user and follows the user wherever the user goes using the [NPC Controller](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Prison/NPCController.cs)
+
 4. The user grabs either of the bird or the NPC which triggers the following three actions: 
 
 a. Bird Ending:
 
   1). The birds in the prison dissolve showing that the birds are freed.
+  ```
 
+    IEnumerator Dissolve(float target)
+    {
+        nPCController.npcDialogue.Stop();
+        while (!Mathf.Approximately(currentDissolveAmount, target))
+        {
+            birdFinalEnding.Play();
+            currentDissolveAmount = Mathf.MoveTowards(currentDissolveAmount, target, speed * Time.deltaTime);
+            dissolveMaterial.SetFloat("_DissolveAmount", currentDissolveAmount);
+            yield return null;
+        }
+        crown.SetActive(false);
+
+        StartCoroutine(waitForAnimationToEnd());
+        XRSceneTransitionManager.Instance.transitionSpeed = 1.0f;
+        StartCoroutine(XRSceneTransitionManager.Instance.Fade(1.0f));
+
+        StartCoroutine(waitForbirdFinalEndingToEnd());
+
+    }
+
+     IEnumerator waitForAnimationToEnd()
+    {
+        yield return new WaitForSeconds(1);
+
+    }
+
+    ```
 
   2). The scene fades to black and the bird that the user chooses is persistant.
 
   3). The bird ending audio is played.
 
   4). After the bird ending audio is finished, the scene transits to the Lobby scene.
+  ```
+
+    IEnumerator waitForbirdFinalEndingToEnd()
+    {
+        yield return new WaitForSeconds(birdFinalEnding.clip.length);
+        //FrameHighlight.StopHighlight();
+        OnFinished.Invoke();
+       
+    }
+
+    ```
 
 b. Crown Ending:
 
@@ -177,9 +226,27 @@ For easier management of  different scenes, we also included two scripts that sh
 In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navigation maps. 
 ![image](NavSetting.png) 
 
+## Shader: *Glow/Highlight/Dissolve*
+We all use one similar script which is changing the property amount with a certain speed in a certain time. Below is the main functon script. 
+```
+ IEnumerator Highlight(float target)
+    {
+        while (!Mathf.Approximately(currentHighlightAmount, target))
+        {
+            currentHighlightAmount = Mathf.MoveTowards(currentHighlightAmount, target, highlightspeed * Time.deltaTime);
+            highlightMaterial.SetFloat("_GlowAmount", currentHighlightAmount);
+            yield return null;
+        }
+             
+    }
+    ```
+
+
 ## Sounds
 Marta processes most of the audio in the story using [Audacity](https://www.audacityteam.org/). 
 ![image](audacity.png)
+
+Special Thanks to **Kacper Jarco** for the voiceover. The rest of the voiceovers are done by Jasmin & Marta. 
 
 
  
@@ -187,10 +254,12 @@ Marta processes most of the audio in the story using [Audacity](https://www.auda
 Jasmin designs most of the lighting in the scenes. We have difficulty lighting up the interior scene like the bedroom and the prison. The major issue is that since we designed all of our assets by ourselves, Unity has difficulty recognizing the UV maps on the assets, which leads to uneven and strange baking lightmaps. The solution to this problem is to add more spotlights in the area which has a very wide range so that it lights up the room interiorly. The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
 
 Ambient Occlusion might add the shining effect of the lights but does not work well when I have a lot of emmisive materials. 
+
 ![image](LightingSetting1.png)
 
 
 Jasmin added fog effects in Corridor and Prison scene to give a more mysterious vibe into the storytelling.  
+
 ![image](FogSettings.png)
 
 ## Playtesting Feedbacks from Users
@@ -217,12 +286,14 @@ Third User:
 - Looking forward to the ending design. 
  
 ## Challenges
+Overcomes: 
+
+Do things differently in the future:
 
 
- 
 ## Final thoughts
 
 ![](images/backstage2.png)
- 
+ <  Jasmin  >
 
 ![This is an image](https://c.tenor.com/gc2lhAqqhTUAAAAC/cat-hi.gif)

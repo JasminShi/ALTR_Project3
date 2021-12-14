@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.081
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.062734485, g: 0.06505988, b: 0.11240899, a: 0.081}
+  m_IndirectSpecularColor: {r: 0.064869836, g: 0.06530068, b: 0.11263714, a: 0.081}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -907,8 +907,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668062075}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.45, y: 0.01, z: -13.481}
+  m_LocalRotation: {x: -0, y: -0.14284669, z: -0, w: 0.9897449}
+  m_LocalPosition: {x: 6.81, y: 0, z: -8.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1198210300}
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionMaterial: {fileID: 2100000, guid: bb086e00bbfb9f943aaf4ed5e9d20899, type: 2}
   transitionSpeed: 1
-  initialScene: Prison
+  initialScene: Lobby
 --- !u!4 &1998225053
 Transform:
   m_ObjectHideFlags: 0

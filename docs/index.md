@@ -1,7 +1,7 @@
 # Royal Choice
 
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
-![Front Page](FrontPage.jpg)
+![image](FrontPage.jpg)
 
 [Here]()is a video walkthrough of the VR experience.
 
@@ -28,9 +28,12 @@ After brainstorming the project idea, we wrote a brief list of features we want 
 [Project Proposal](https://docs.google.com/presentation/d/11PQFCiBJaEqtsZIy5RAeAoMv4BO3j1rK7nELosP6U7Q/edit?usp=sharing) can be viewed here. 
 [Shared Google Doc](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing)is a link to the detailed documentation of the 7-week progress.  
 
+[The Plot Design for Royal Choice](https://docs.google.com/document/d/1Q0Mhou8_hozDh8bwGm4f6z0P6WRqtUP74pePDs9ogl4/edit?usp=sharing)
+
 Marta started our project by creating her own resources using [Shapr3D Software](https://www.shapr3d.com/)for each scene. Jasmin worked in parallel on the Github Collaborate and XR Rig setup, as well as creating scene transitions. 
 ![image](shapr3d1.PNG)
 ![image](shapr3d2.PNG)
+
 
 ## Lobby
 We have implemented a simple UI system in the lobby that shows the title, authors, and a brief instruction. We have designed the user path in a way that the user can learn to navigate in a VR environment, try the SnapTurn on turns, test RayCast interactions, and learn about the transitions between scenes that occur when the user stands on an emissive star.
@@ -104,7 +107,7 @@ Bird Facing position/rotation Control script:
 
 
 Jasmin designed the layout of the chamber and the portraits, while Marta built the assets of the chamber.
-![image](BedroomSDesign.png)
+![image](BedroomDesign.png)
 ![image](BedroomOverview.png)
 ![image](Portraits.png)
 ![image](BedroomView.png)
@@ -133,15 +136,26 @@ There are many interactions in this scene as well.
 2. The user can choose to proceed without listening to the full audio of each speaker as they are also encouraged to make an uninformed decision(which makes no difference to the ending). Therefore, the audio would stop playing once the user interacts with the next object.
 3. The NPC faces the user and follows the user wherever the user goes. 
 4. The user grabs either of the bird or the NPC which triggers the following three actions: 
+
 a. Bird Ending:
+
   1). The birds in the prison dissolve showing that the birds are freed.
+
+
   2). The scene fades to black and the bird that the user chooses is persistant.
+
   3). The bird ending audio is played.
-  - After the bird ending audio is finished, the scene transits to the Lobby scene.
+
+  4). After the bird ending audio is finished, the scene transits to the Lobby scene.
+
 b. Crown Ending:
+
   1). The birds in the prison are shining and highlighted, which represents the exploitation of the birds intensifies as the power of kingdom strengthens. 
+
   2). The scene fades to black and the crown that the user chooses is persistant.
+
   3). The crown ending audio is played.
+
   4). After the bird ending audio is finished, the scene transits to the Lobby scene.
 
 ## Teleportation 
@@ -150,40 +164,65 @@ Every scene except for the Dream Scene have telportation areas included, which i
 The reticle of teleportation also meets the aesthetics of the whole design, which is one of our favourite designs. 
 
 
-## Scene Transition
+## Scene Transition & Editor
 Most of the scene transition (Except for the Dream scene to Bedroom Scene) are realized through standing on a transition spot. It is a star-like spot that users can teleport to.
 ![image](TransitionStar.png) 
 We use a teleportation anchor to realize such function.
 ![image](TeleportationAnchor.png) 
 The [SceneTransition Manager](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionManager.cs) script completes the loading and unloading of different scenes and the [SceneTransition Controller] (https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionController.cs) script controls which scene to transit to.
 
+For easier management of  different scenes, we also included two scripts that shows the scenes in editor. The scripts are [SceneSelector](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneSelector.cs) and [SceneTransferEditor](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneTransferEditor.cs). 
 
 ## Navigation
 In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navigation maps. 
-![image](NavSetting.png)
+![image](NavSetting.png) 
 
 ## Sounds
 Marta processes most of the audio in the story using [Audacity](https://www.audacityteam.org/). 
 ![image](audacity.png)
 
+
  
 ## Lightning
 Jasmin designs most of the lighting in the scenes. We have difficulty lighting up the interior scene like the bedroom and the prison. The major issue is that since we designed all of our assets by ourselves, Unity has difficulty recognizing the UV maps on the assets, which leads to uneven and strange baking lightmaps. The solution to this problem is to add more spotlights in the area which has a very wide range so that it lights up the room interiorly. The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
 
+Ambient Occlusion might add the shining effect of the lights but does not work well when I have a lot of emmisive materials. 
+![image](LightingSetting1.png)
+
+
 Jasmin added fog effects in Corridor and Prison scene to give a more mysterious vibe into the storytelling.  
 ![image](FogSettings.png)
+
+## Playtesting Feedbacks from Users
+
+First User: 
+
+- Aesthetics: consistent, like the color.
+- Sound in the bedroom: too much echo, too low, can not hear clearly. 
+- The interactions in the corridor scene: Fun experience.  
+- The Frame color of the portraits in the room are a bit weird. 
+
+Second User: 
+
+- The storytelling in the bedroom is not very clear. 
+- The glass on the table is a bit confusing. 
+- The user would like to know what to do with the glass. 
+- The castles' speed could be more gentle. 
+- The ending is still a bit vague.
+
+Third User: 
+
+- Love the castles.
+- Love the monument valley vibe. 
+- Looking forward to the ending design. 
  
 ## Challenges
-Sth < JASMIN >
- 
+
+
  
 ## Final thoughts
-< MARTA >
+
 ![](images/backstage2.png)
  
- 
-why doesn't my changes show/??? 
-
-[This is a link](#)
 
 ![This is an image](https://c.tenor.com/gc2lhAqqhTUAAAAC/cat-hi.gif)

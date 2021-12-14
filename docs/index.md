@@ -3,7 +3,12 @@
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
 ![image](FrontPage.jpg)
 
-[Here](https://drive.google.com/drive/folders/19y-PMIfJmgaNyEj64rDgOtt2YUMZ7ASr?usp=sharing) is a video walkthrough of the VR experience.
+
+**Strongly Recomended**
+If you have a VR headset, do not hesitate to play our project on it. Here is the [release](https://github.com/JasminShi/ALTR_Project3/releases/tag/v1.0.0-Alpha)
+
+**Recommended**
+If you don't have a VR headset right now, you can [watch this](https://drive.google.com/drive/folders/19y-PMIfJmgaNyEj64rDgOtt2YUMZ7ASr?usp=sharing), which is a video walkthrough of the VR experience. 
 
 Below are some general visual aesthetics of the game. 
 ![image](PortraitShine.gif)
@@ -140,9 +145,9 @@ The corridor scene serves as a transition between the two narrative driven scene
 
  
 ## Prison
-![images](PrisonDesign2.JPG)
+![images](PrisonDesign2.jpg)
 ![images](PrisonDesign1.png)
-![images](PrisonDesign3.png)
+![images](PrisonDesign3.jpg)
 
 The Prison scene leads the user to the climax of the story through realizing the sharp conflict between the prosperity of the kingdom and the lives of the birds. The user first sees plenty of birds inside the "cages" of the prison and then walks ahead and hears one lab report from the automatically played audio. The audio is played once the user steps into the area, which is designed forseeing the user's traffic flow. Next, the user would see an exit to the left, where the user encounters the guard of the prison.  
 
@@ -157,15 +162,16 @@ There are many interactions in this scene as well.
 
 1. The guard NPC and the lab report are triggered once the user steps into a certain trigger area. 
 2. The user can choose to proceed without listening to the full audio of each speaker as they are also encouraged to make an uninformed decision(which makes no difference to the ending). Therefore, the audio would stop playing once the user interacts with the next object.
-3. The NPC faces the user and follows the user wherever the user goes using the [NPC Controller](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Prison/NPCController.cs)
-
+3. The NPC faces the user and follows the user wherever the user goes using the [NPC Controller](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Prison/NPCController.cs).
 4. The user grabs either of the bird or the NPC which triggers the following three actions: 
 
 ![images](Ending.jpg)
 
 a. Bird Ending:
+![image](BirdDissolve.gif)
 
-  1). The birds in the prison dissolve showing that the birds are freed.
+
+  1. The birds in the prison **dissolve** showing that the birds are freed.
   ```
 
     IEnumerator Dissolve(float target)
@@ -196,11 +202,13 @@ a. Bird Ending:
 
     ```
 
-  2). The scene fades to black and the bird that the user chooses is persistant.
 
-  3). The bird ending audio is played.
+  2. The scene fades to black and the bird that the user chooses is persistant.
 
-  4). After the bird ending audio is finished, the scene transits to the Lobby scene.
+  3. The bird ending audio is played.
+
+  4. After the bird ending audio is finished, the scene transits to the Lobby scene.
+
   ```
 
     IEnumerator waitForbirdFinalEndingToEnd()
@@ -213,9 +221,12 @@ a. Bird Ending:
 
     ```
 
-b. Crown Ending:
 
-  1). The birds in the prison are shining and highlighted, which represents the exploitation of the birds intensifies as the power of kingdom strengthens. 
+b. Crown Ending: (Similar to bird ending in setting up)
+![image](BirdShine.gif)
+
+
+  1). The birds in the prison are **shining and highlighted**, which represents the exploitation of the birds intensifies as the power of kingdom strengthens. 
 
   2). The scene fades to black and the crown that the user chooses is persistant.
 
@@ -226,19 +237,22 @@ b. Crown Ending:
 ## Teleportation 
 Every scene except for the Dream Scene have telportation areas included, which is built by probuilder. We use left hand trigger to teleport, therefore, the interaction layer mask is set to teleportation & UI & XR Persistent. The teleportation area is on the teleportation layer and the hand visuals are on the XR Persistent layer. 
 ![image](LeftHandController.png) 
+
 The reticle of teleportation also meets the aesthetics of the whole design, which is one of our favourite designs. 
+![image](ReticleDesign.png)
 
 
 ## Scene Transition & Editor
 Most of the scene transition (Except for the Dream scene to Bedroom Scene) are realized through standing on a transition spot. It is a star-like spot that users can teleport to.
 ![image](TransitionStar.png) 
-We use a teleportation anchor to realize such function.
+We use a **teleportation anchor** to realize such function.
 ![image](TeleportationAnchor.png) 
+
 The [SceneTransition Manager](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionManager.cs) script completes the loading and unloading of different scenes and the [SceneTransition Controller] (https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionController.cs) script controls which scene to transit to.
 
 For easier management of  different scenes, we also included two scripts that shows the scenes in editor. The scripts are [SceneSelector](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneSelector.cs) and [SceneTransferEditor](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneTransferEditor.cs). 
 
-For Screen Fade effect, here is the setting: 
+For **Screen Fade effect**, here is the setting: 
 ![image](ScreenFadeSetting.png) 
 
 ## Navigation
@@ -260,7 +274,7 @@ We all use one similar script which is changing the property amount with a certa
              
     }
  ```
-Below are the 6 shaders that we have made for this project. We have our reference linked in the detailed documentation doc. 
+Below are the 6 shaders that we have made for this project. We have our reference linked in the [detailed documentation doc](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing). 
 ![image](DisappearShader.png) 
 ![image](HighlightShader.png) 
 ![image](WaterShader.png) 
@@ -285,8 +299,8 @@ Jasmin designs most of the lighting in the scenes. We have difficulty lighting u
 The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
 
 Thanks to the following tutorial video: ![image](Tutorial.png) ![image](Lighting.png) 
-Ambient Occlusion might add the shining effect of the lights but does not work well when I have a lot of emmisive materials. 
 
+Ambient Occlusion might add the shining effect of the lights but does not work well when I have a lot of emmisive materials. 
 ![image](LightingSetting1.png)
 
 
@@ -317,9 +331,10 @@ Third User:
 - Love the monument valley vibe. 
 - Looking forward to the ending design. 
 
+
 ## Challenges
 
-We have encountered so many challenges along the 7-week way building our project that we can not remember all of them. We are glad that we have overcome most of them and are able to present a complete and interesting project. In general, there are chellenges in scripting, debugging and lighting. 
+We have encountered so many challenges along the 7-week way building our project that we can not remember all of them. We are glad that we have overcome most of them and are able to present a complete and interesting project. In general, there are chellenges in **scripting, debugging and lighting**. 
 
 We are not familiar with implementing Coroutines in our scripts at first. There are challenges to make the NPC and the user interact by creating signs to instruct the users and giving feedbacks when the action is completed. We implemented the UnityEvent system which sets up the next action using *OnFinished()* Function. We become familiar with calling public functions across scripts and adding the scripts to certain game objects. Lesson learned here is that practice does help make perfect. We are able to write up scripts to realized functions like **screenfade after audio is played**, **actioncalled after interaction entered**, **Disable Game objects after interaction exited**, etc. We are able to write the script by ourselves when the project is approaching to the end, which enhances the sense of acomplishment in completing the project. 
 
@@ -331,7 +346,7 @@ Jasmin has encountered lighting problems. The project has endured three stages a
 ## Final Thoughts
 > It was a Mission Impossible at first
 
-This is the first time for us to do a 7-week project. We are grateful to heve the opportunity to complete such a **mission impossible**, both struggled and enjoyed the project experience. For such a project, it is not only about Unity itself, but about storytelling, sound design, visual design, 3D modelling, video editing, user experience design and so forth. Other than Unity, we have also used other modelling or visualization/audio software to make our storytelling more vivd and emmersive. 
+This is the first time for us to do a 7-week project. We are grateful to heve the opportunity to complete such a **mission impossible**, both struggled and enjoyed the project experience. For such a project, it is not only about Unity itself, but about storytelling, sound design, visual design, 3D modelling, video editing, user experience design and so forth. Other than Unity, we have also used other modelling or visualization/audio software to make our storytelling more vivd and immersive. 
 
 > Group Dynamics are essential
 
@@ -347,4 +362,6 @@ During the project building season, we managed to rush ahead of the plans so tha
 
 
 ![image](backstage2.png)
+
+Contact Us: js11168@nyu.edu 
 

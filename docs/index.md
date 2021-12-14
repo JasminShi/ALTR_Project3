@@ -3,7 +3,7 @@
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
 ![image](FrontPage.JPEG)
 
-[Here]()is a video walkthrough of the VR experience.
+[Here]() is a video walkthrough of the VR experience.
 
 Below are some general visual aesthetics of the game. 
 ![image](.gif)
@@ -37,6 +37,7 @@ Marta started our project by creating her own resources using [Shapr3D Software]
 
 ## Lobby
 We have implemented a simple UI system in the lobby that shows the title, authors, and a brief instruction. We have designed the user path in a way that the user can learn to navigate in a VR environment, try the SnapTurn on turns, test RayCast interactions, and learn about the transitions between scenes that occur when the user stands on an emissive star.
+
 ![image](lobby.png)
 ![image](lobby2.JPEG)
 

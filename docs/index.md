@@ -116,6 +116,7 @@ Bird Facing position/rotation Control script:
 
     }
 
+
 ```
 
 
@@ -172,6 +173,7 @@ a. Bird Ending:
 
 
   1. The birds in the prison **dissolve** showing that the birds are freed.
+
   ```
 
     IEnumerator Dissolve(float target)
@@ -199,7 +201,6 @@ a. Bird Ending:
         yield return new WaitForSeconds(1);
 
     }
-
     ```
 
 
@@ -210,7 +211,6 @@ a. Bird Ending:
   4. After the bird ending audio is finished, the scene transits to the Lobby scene.
 
   ```
-
     IEnumerator waitForbirdFinalEndingToEnd()
     {
         yield return new WaitForSeconds(birdFinalEnding.clip.length);
@@ -218,7 +218,6 @@ a. Bird Ending:
         OnFinished.Invoke();
        
     }
-
     ```
 
 
@@ -261,6 +260,7 @@ In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navi
 
 ## Shader: *Glow/Highlight/Dissolve*
 We all use one similar script which is changing the property amount with a certain speed in a certain time. Below is the main functon script. 
+
 ```
 
  IEnumerator Highlight(float target)
@@ -274,6 +274,7 @@ We all use one similar script which is changing the property amount with a certa
              
     }
  ```
+
 Below are the 6 shaders that we have made for this project. We have our reference linked in the [detailed documentation doc](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing). 
 ![image](DisappearShader.png) 
 ![image](HighlightShader.png) 

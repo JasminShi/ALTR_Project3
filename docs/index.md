@@ -1,14 +1,15 @@
 # Royal Choice
 
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
-![image](FrontPage.JPEG)
+![image](FrontPage.jpg)
 
-[Here]() is a video walkthrough of the VR experience.
+[Here](https://drive.google.com/drive/folders/19y-PMIfJmgaNyEj64rDgOtt2YUMZ7ASr?usp=sharing) is a video walkthrough of the VR experience.
 
 Below are some general visual aesthetics of the game. 
-![image](.gif)
-![image](.gif)
-![image](.gif)
+![image](PortraitShine.gif)
+![image](MovingCastle.gif)
+![image](BirdDissolve.gif)
+![image](BirdShine.gif)
 
 ## Worldbuilding
 The main character of the story is a little princess, a member of the royal family. The royal family is elected by **dynastic and divine laws** and has partial immortality. Rulers are able to live up to 300 years, guaranteeing long-term prosperity and justice to their subjects.
@@ -39,7 +40,7 @@ Marta started our project by creating her own resources using [Shapr3D Software]
 We have implemented a simple UI system in the lobby that shows the title, authors, and a brief instruction. We have designed the user path in a way that the user can learn to navigate in a VR environment, try the SnapTurn on turns, test RayCast interactions, and learn about the transitions between scenes that occur when the user stands on an emissive star.
 
 ![image](lobby.png)
-![image](lobby2.JPEG)
+![image](lobby2.jpg)
 
 
 ## Dream
@@ -128,20 +129,20 @@ Marta designed the Bird NPC and added animations using mixamo.
 ## Corridor
 The corridor scene serves as a transition between the two narrative driven scenes. In this scene, we wanted the users to immerse themselves in the game's environment and aesthetics, while also trying to strengthen their sense of anticipation and curiosity. After adding the custom assets, we started scripting the movement of the platforms, which activates when the user stands on the emissive star. Marta encountered difficulties detecting collisions between the XR Rig and the Box colliders. After some time we changed the logic behind this interaction and added Teleport Anchor along with the Hover Exited events. We also created a custom Shader Graph for water, as well as added an element of fog, subtle sounds of earthquake and water to further enhance the sensational feeling.
 
-![images](Corridor1.JPEG)
-![images](Corridor2.JPEG)
-![images](Corridor3.JPEG)
+![images](Corridor1.jpg)
+![images](Corridor2.jpg)
+![images](Corridor3.jpg)
 
 ![images](corridor.png)
 ![images](corridor2.PNG)
 
 
 
-
  
 ## Prison
-![images](PrisonDesign2.JPEG)
-![images](PrisonDesign1.JPEG)
+![images](PrisonDesign2.JPG)
+![images](PrisonDesign1.png)
+![images](PrisonDesign3.png)
 
 The Prison scene leads the user to the climax of the story through realizing the sharp conflict between the prosperity of the kingdom and the lives of the birds. The user first sees plenty of birds inside the "cages" of the prison and then walks ahead and hears one lab report from the automatically played audio. The audio is played once the user steps into the area, which is designed forseeing the user's traffic flow. Next, the user would see an exit to the left, where the user encounters the guard of the prison.  
 
@@ -160,7 +161,7 @@ There are many interactions in this scene as well.
 
 4. The user grabs either of the bird or the NPC which triggers the following three actions: 
 
-![images](Ending.JPEG)
+![images](Ending.jpg)
 
 a. Bird Ending:
 
@@ -237,6 +238,9 @@ The [SceneTransition Manager](https://github.com/JasminShi/ALTR_Project3/blob/ma
 
 For easier management of  different scenes, we also included two scripts that shows the scenes in editor. The scripts are [SceneSelector](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneSelector.cs) and [SceneTransferEditor](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Editor/SceneTransferEditor.cs). 
 
+For Screen Fade effect, here is the setting: 
+![image](ScreenFadeSetting.png) 
+
 ## Navigation
 In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navigation maps. 
 ![image](NavSetting.png) 
@@ -244,6 +248,7 @@ In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navi
 ## Shader: *Glow/Highlight/Dissolve*
 We all use one similar script which is changing the property amount with a certain speed in a certain time. Below is the main functon script. 
 ```
+
  IEnumerator Highlight(float target)
     {
         while (!Mathf.Approximately(currentHighlightAmount, target))
@@ -254,8 +259,14 @@ We all use one similar script which is changing the property amount with a certa
         }
              
     }
-    ```
-
+ ```
+Below are the 6 shaders that we have made for this project. We have our reference linked in the detailed documentation doc. 
+![image](DisappearShader.png) 
+![image](HighlightShader.png) 
+![image](WaterShader.png) 
+![image](FrameHighlightShader.png) 
+![image](DissolveShader.png) 
+![image](StarShader.png) 
 
 ## Sounds
 Marta processes most of the audio in the story using [Audacity](https://www.audacityteam.org/). 
@@ -263,11 +274,17 @@ Marta processes most of the audio in the story using [Audacity](https://www.auda
 
 Special Thanks to **Kacper Jarco** for the voiceover. The rest of the voiceovers are done by Jasmin & Marta. 
 
-
+![image](SoundLibrary.png) 
  
-## Lightning
-Jasmin designs most of the lighting in the scenes. We have difficulty lighting up the interior scene like the bedroom and the prison. The major issue is that since we designed all of our assets by ourselves, Unity has difficulty recognizing the UV maps on the assets, which leads to uneven and strange baking lightmaps. The solution to this problem is to add more spotlights in the area which has a very wide range so that it lights up the room interiorly. The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
+## Lighting
 
+Jasmin designs most of the lighting in the scenes. We have difficulty lighting up the interior scene like the bedroom and the prison. The major issue is that since we designed all of our assets by ourselves, Unity has difficulty recognizing the UV maps on the assets, which leads to uneven and strange baking lightmaps. The solution to this problem is to add more spotlights in the area which has a very wide range so that it lights up the room interiorly. 
+
+![image](UVMap.png) 
+
+The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
+
+Thanks to the following tutorial video: ![image](Tutorial.png) ![image](Lighting.png) 
 Ambient Occlusion might add the shining effect of the lights but does not work well when I have a lot of emmisive materials. 
 
 ![image](LightingSetting1.png)
@@ -299,8 +316,19 @@ Third User:
 - Love the castles.
 - Love the monument valley vibe. 
 - Looking forward to the ending design. 
- 
+
 ## Challenges
+
+We have encountered so many challenges along the 7-week way building our project that we can not remember all of them. We are glad that we have overcome most of them and are able to present a complete and interesting project. In general, there are chellenges in scripting, debugging and lighting. 
+
+We are not familiar with implementing Coroutines in our scripts at first. There are challenges to make the NPC and the user interact by creating signs to instruct the users and giving feedbacks when the action is completed. We implemented the UnityEvent system which sets up the next action using *OnFinished()* Function. We become familiar with calling public functions across scripts and adding the scripts to certain game objects. Lesson learned here is that practice does help make perfect. We are able to write up scripts to realized functions like **screenfade after audio is played**, **actioncalled after interaction entered**, **Disable Game objects after interaction exited**, etc. We are able to write the script by ourselves when the project is approaching to the end, which enhances the sense of acomplishment in completing the project. 
+
+We are confused with how to debug a project at first. But debugging with the professor for many times and struggling through and learning from the mistakes really help us develop the **sense of debugging**. When we see something working abnormally, we have the directions to find out what is wrong. I have to say, that there are times when we spend 2 hours and everything stays the same. But the time spent is worth it as we memorize what we did wrong and could improve in the future. Although we are still lacking the ability to look through the terminal and debug, we have improved in debugging within Unity. 
+
+Jasmin has encountered lighting problems. The project has endured three stages as for the lighting. First Stage, looking great without any bake lights and under directional lights. Second Stage, looking poor resolution, far from our original aesthetics, creepy shadows, ugly and strange colors after baking lightmaps. Both Realtime and baked lights are not satisfying. Jasmin has spent hours trying to adjust the lights through building on Windows PCs, going through different Unity Lighting tutorials, asking professors for help. Jasmin has exlored every tab and button in the lighting section in Unity, which did not help with the final fix, but helped familiarize with the different lighting settings. In the final Project, the lighting is adjusted through countless testing and some luck.
+
+ 
+## Final Thoughts
 > It was a Mission Impossible at first
 
 This is the first time for us to do a 7-week project. We are grateful to heve the opportunity to complete such a **mission impossible**, both struggled and enjoyed the project experience. For such a project, it is not only about Unity itself, but about storytelling, sound design, visual design, 3D modelling, video editing, user experience design and so forth. Other than Unity, we have also used other modelling or visualization/audio software to make our storytelling more vivd and emmersive. 
@@ -317,15 +345,6 @@ We admit that we might not be the best in scripting in C# or building in Unity, 
 
 During the project building season, we managed to rush ahead of the plans so that we could save more time for polishing the project. Experience teaches us that here must be some time reserved for debugging. There is one time when every interaction in our project did not work one week before presentation. We are glad that we left some time for dealing with the erros and bugs and that did not happen on the day of presentation. 
 
-Things we will do differently in the future: 
 
+![image](backstage2.png)
 
-
-
-
-## Final thoughts
-
-![](images/backstage2.png)
- <  Jasmin  >
-
-![This is an image](https://c.tenor.com/gc2lhAqqhTUAAAAC/cat-hi.gif)

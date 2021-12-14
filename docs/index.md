@@ -128,15 +128,27 @@ Marta designed the Bird NPC and added animations using mixamo.
 ## Corridor
 The corridor scene serves as a transition between the two narrative driven scenes. In this scene, we wanted the users to immerse themselves in the game's environment and aesthetics, while also trying to strengthen their sense of anticipation and curiosity. After adding the custom assets, we started scripting the movement of the platforms, which activates when the user stands on the emissive star. Marta encountered difficulties detecting collisions between the XR Rig and the Box colliders. After some time we changed the logic behind this interaction and added Teleport Anchor along with the Hover Exited events. We also created a custom Shader Graph for water, as well as added an element of fog, subtle sounds of earthquake and water to further enhance the sensational feeling.
 
-![](images/corridor.png)
-![](images/corridor2.PNG)
+![images](Corridor1.JPEG)
+![images](Corridor2.JPEG)
+![images](Corridor3.JPEG)
+
+![images](corridor.png)
+![images](corridor2.PNG)
+
+
+
+
  
 ## Prison
+![images](PrisonDesign2.JPEG)
+![images](PrisonDesign1.JPEG)
+
 The Prison scene leads the user to the climax of the story through realizing the sharp conflict between the prosperity of the kingdom and the lives of the birds. The user first sees plenty of birds inside the "cages" of the prison and then walks ahead and hears one lab report from the automatically played audio. The audio is played once the user steps into the area, which is designed forseeing the user's traffic flow. Next, the user would see an exit to the left, where the user encounters the guard of the prison.  
 
-![](images/Guard.png)
+![images](Guard.png)
+![images](GuardNPC1.png)
  
-The user is further told that the king keeps the birds for a greater good, which is directly the opposite of how the user feels when going through all the scenes witnessing the sufferings of the birds. Therefore, the moral dilemma is delivered here and pushes the story to a climax. The user is instructed to make a choice, seeing the two columns standing in front of her. The user has to choose by grabing each of the objects, which will lead to two different but similar ending.
+The user is further told by the guard NPC that the king keeps the birds for a greater good, which is directly the opposite of how the user feels when going through all the scenes witnessing the sufferings of the birds. Therefore, the moral dilemma is delivered here and pushes the story to a climax. The user is instructed to make a choice, seeing the two columns standing in front of her. The user has to choose by grabing each of the objects, which will lead to two different but similar ending.
 
 Both endings explains the losses and gains of each side through the form of debate from the bird and the guard. The ending illustrates that there is no good choice in such a moral dilemma and we intend to let the user feel sorry and reflect on the past experience. 
 
@@ -147,6 +159,8 @@ There are many interactions in this scene as well.
 3. The NPC faces the user and follows the user wherever the user goes using the [NPC Controller](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Prison/NPCController.cs)
 
 4. The user grabs either of the bird or the NPC which triggers the following three actions: 
+
+![images](Ending.JPEG)
 
 a. Bird Ending:
 
@@ -287,9 +301,26 @@ Third User:
 - Looking forward to the ending design. 
  
 ## Challenges
-Overcomes: 
+> It was a Mission Impossible at first
 
-Do things differently in the future:
+This is the first time for us to do a 7-week project. We are grateful to heve the opportunity to complete such a **mission impossible**, both struggled and enjoyed the project experience. For such a project, it is not only about Unity itself, but about storytelling, sound design, visual design, 3D modelling, video editing, user experience design and so forth. Other than Unity, we have also used other modelling or visualization/audio software to make our storytelling more vivd and emmersive. 
+
+> Group Dynamics are essential
+
+For Marta and Jasmin, it is our first time collaborating with  each other. We collaborated well in this group project, nicely analyzed the project expectations, group workflow, adjusted the working plan weekly and appreciated each other's works. Marta is good at targeting the works to fufill the minimal viable project while Jasmin is good at planning the steps ahead. We tried to make the best out of our project with the easiest way. We emphasize on the user experience while using Unity and many other tools to tell the story. 
+
+> Don't Hesitate to Seek Help
+
+We admit that we might not be the best in scripting in C# or building in Unity, however, we actively seek help both through watching tutorials on Youtube, asking classmates for advice, or making office hour appoitnments with the professor. We can not complete our project without the great help offered by them. Special thanks to Professor Michael Allison. He is the greatest supporter behind this project. :)
+
+> Glad we rushed ahead of time
+
+During the project building season, we managed to rush ahead of the plans so that we could save more time for polishing the project. Experience teaches us that here must be some time reserved for debugging. There is one time when every interaction in our project did not work one week before presentation. We are glad that we left some time for dealing with the erros and bugs and that did not happen on the day of presentation. 
+
+Things we will do differently in the future: 
+
+
+
 
 
 ## Final thoughts

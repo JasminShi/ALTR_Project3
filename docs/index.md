@@ -1,8 +1,14 @@
 # Royal Choice
 
 Alternate Realities Project by Marta Pienkosz and Jasmin Shi. 
-![ image](FogSettings.png)
+![Front Page](FrontPage.jpg)
 
+[Here]()is a video walkthrough of the VR experience.
+
+Below are some general visual aesthetics of the game. 
+![image](.gif)
+![image](.gif)
+![image](.gif)
 
 ## Worldbuilding
 The main character of the story is a little princess, a member of the royal family. The royal family is elected by **dynastic and divine laws** and has partial immortality. Rulers are able to live up to 300 years, guaranteeing long-term prosperity and justice to their subjects.
@@ -17,32 +23,96 @@ In the basement, she discovers a room full of cages and learns that a special se
  
  
 ## Progress
-After brainstorming the project idea, we wrote a brief list of features we want to develop over the next 7 weeks, agreed on the order of implementation and minimal requirements for the MVP. Marta started our project by creating her own resources using [Shapr3D Software](https://www.shapr3d.com/)for each scene. Jasmin worked in parallel on the Github Collaborate and XR Rig setup, as well as creating scene transitions.
+After brainstorming the project idea, we wrote a brief list of features we want to develop over the next 7 weeks, agreed on the order of implementation and minimal requirements for the MVP. 
+
+[Project Proposal](https://docs.google.com/presentation/d/11PQFCiBJaEqtsZIy5RAeAoMv4BO3j1rK7nELosP6U7Q/edit?usp=sharing) can be viewed here. 
+[Shared Google Doc](https://docs.google.com/document/d/1HIzR-mnUKxKZD01efXmYryBfXu3IYQbWYmGtPyJ70Kk/edit?usp=sharing)is a link to the detailed documentation of the 7-week progress.  
+
+Marta started our project by creating her own resources using [Shapr3D Software](https://www.shapr3d.com/)for each scene. Jasmin worked in parallel on the Github Collaborate and XR Rig setup, as well as creating scene transitions. 
 ![image](shapr3d1.PNG)
 ![image](shapr3d2.PNG)
 
 ## Lobby
 We have implemented a simple UI system in the lobby that shows the title, authors, and a brief instruction. We have designed the user path in a way that the user can learn to navigate in a VR environment, try the SnapTurn on turns, test RayCast interactions, and learn about the transitions between scenes that occur when the user stands on an emissive star.
 ![image](lobby.png)
+![image](lobby2.png)
+
 
 ## Dream
 We start the story from the user waking up from a dream. Therefore, we implemented a scene which has very dark environment and the audio of birds' crying and calling played in the background. The user can not decide when to leave the scene, which is similar to a dream scenario. We implemented a script that fades the screen and transit to the next scene once the audio is finished playing. 
 
+![image](DreambgmWorklog.png)
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class DreamTransfer : MonoBehaviour
+{
+
+    public UnityEvent OnFinished = new UnityEvent();
+
+    public AudioSource dreamAudio;
+
+    public void Update()
+    {
+       if(!dreamAudio.isPlaying)
+        {
+            OnFinished.Invoke();
+        }
+    }
+}
+
+```
 
 
 ## Bedroom
 After the user wake up from the dream, they immediately hear the voice of the bird NPC which instructed her to reflect on her dream and lead her to the journey of explorinig the secrets behind her dream. Interactions are designed to instruct the users to move forward and get a better understanding of the background of the story. 
-The main interactions are: 
-1). The user is grasps and drinks the glass of magic baverage on the table.
-2). The user looks at the portraits and the background story audio of each portrait plays. We use eye-centered interaction here so that the portraits' frames will be highlighted once the user focus on one portrait. The portraits are designed to play one by one and the user can not activate the next portrait unless the current portrait's audio is finished playing. 
-3). The bird NPC walks from the table to the portraits and to the exit of the bedroom, which is scripted to walk as the story progresses. The bird NPC would turn to the user when speaking and idle when not moving. 
+![image](BedroomEnter.png)
+![image](BedroomExit.png)
 
-Jasmin designed the layout of the chamber and Marta built the asset of the chamber.
-<!-- ![image](lobby.png)
- -->
+
+The main interactions are: 
+1). The user grasps and drinks the glass of magic baverage on the table. There are swallowing sounds and the baverage would disappear after "drinking" action.
+![image](GlassSetting.png)
+
+2). The user looks at the portraits and the background story audio of each portrait plays. We use eye-centered interaction here so that the portraits' frames will be highlighted once the user focus on one portrait. The portraits are designed to play one by one and the user can not activate the next portrait unless the current portrait's audio is finished playing. 
+This is realized through the [Portrait Manager](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Bedroom/PortraitManager.cs)script. 
+The XR Eye-centered interaction is not enabled unless the previous event is finished. 
+Below is the settings in Unity. 
+![image](FrameSetting1.png)
+![image](FrameSetting2.png)
+![image](FrameSetting3.png)
+
+3). The bird NPC walks from the table to the portraits and to the exit of the bedroom, which is scripted to walk as the story progresses. The bird NPC would turn to the user when speaking and idle when not moving. 
+This is realized through [BirdController](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/Bedroom/BirdController.cs) script.
+
+Bird Facing position/rotation Control script: 
+```
+    IEnumerator PlayBirdDialogue3()
+    {
+        yield return WaitForBirdToReachDesitnation();
+
+        transform.LookAt(userLocation.position, Vector3.up);
+
+        birdDialogue3.Play();
+
+    }
+
+```
+
+
+Jasmin designed the layout of the chamber and the portraits, while Marta built the assets of the chamber.
+![image](BedroomSDesign.png)
+![image](BedroomOverview.png)
+![image](Portraits.png)
+![image](BedroomView.png)
+
 
 Marta designed the Bird NPC and added animations using mixamo.
-![image](lobby.png)
+![image](BirdNPC.png)
+
 
  
 ## Corridor
@@ -59,30 +129,49 @@ The user is further told that the king keeps the birds for a greater good, which
 Both endings explains the losses and gains of each side through the form of debate from the bird and the guard. The ending illustrates that there is no good choice in such a  moral dilemma and we intend to let the user feel sorry and reflect on the past experience. 
 
 There are many interactions in this scene as well. 
-1). The guard NPC and the lab report are triggered once the user steps into a certain trigger area. 
-2). The user can choose to proceed without listening to the full audio of each speaker as they are also encouraged to make an uninformed decision(which makes no difference to the ending). Therefore, the audio would stop playing once the user interacts with the next object.
-3). The NPC faces the user and follows the user wherever the user goes. 
-4). The user grabs either of the bird or the NPC which triggers the following three actions: 
-- Bird Ending:
-  - The birds in the prison dissolve showing that the birds are freed.
-  - The scene fades to black and the bird that the user chooses is persistant.
-  - The bird ending audio is played.
+1. The guard NPC and the lab report are triggered once the user steps into a certain trigger area. 
+2. The user can choose to proceed without listening to the full audio of each speaker as they are also encouraged to make an uninformed decision(which makes no difference to the ending). Therefore, the audio would stop playing once the user interacts with the next object.
+3. The NPC faces the user and follows the user wherever the user goes. 
+4. The user grabs either of the bird or the NPC which triggers the following three actions: 
+a. Bird Ending:
+  1). The birds in the prison dissolve showing that the birds are freed.
+  2). The scene fades to black and the bird that the user chooses is persistant.
+  3). The bird ending audio is played.
   - After the bird ending audio is finished, the scene transits to the Lobby scene.
-- Crown Ending:
-  - The birds in the prison are shining and highlighted, which represents the exploitation of the birds intensifies as the power of kingdom strengthens. 
-  - The scene fades to black and the crown that the user chooses is persistant.
-  - The crown ending audio is played.
-  - After the bird ending audio is finished, the scene transits to the Lobby scene.
+b. Crown Ending:
+  1). The birds in the prison are shining and highlighted, which represents the exploitation of the birds intensifies as the power of kingdom strengthens. 
+  2). The scene fades to black and the crown that the user chooses is persistant.
+  3). The crown ending audio is played.
+  4). After the bird ending audio is finished, the scene transits to the Lobby scene.
+
+## Teleportation 
+Every scene except for the Dream Scene have telportation areas included, which is built by probuilder. We use left hand trigger to teleport, therefore, the interaction layer mask is set to teleportation & UI & XR Persistent. The teleportation area is on the teleportation layer and the hand visuals are on the XR Persistent layer. 
+![image](LeftHandController.png) 
+The reticle of teleportation also meets the aesthetics of the whole design, which is one of our favourite designs. 
+
+
+## Scene Transition
+Most of the scene transition (Except for the Dream scene to Bedroom Scene) are realized through standing on a transition spot. It is a star-like spot that users can teleport to.
+![image](TransitionStar.png) 
+We use a teleportation anchor to realize such function.
+![image](TeleportationAnchor.png) 
+The [SceneTransition Manager](https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionManager.cs) script completes the loading and unloading of different scenes and the [SceneTransition Controller] (https://github.com/JasminShi/ALTR_Project3/blob/main/Assets/Scripts/XRSceneTransitionController.cs) script controls which scene to transit to.
+
+
+## Navigation
+In Bedroom Scene and Prison Scene, the NavMesh Agents (NPCs) have their own navigation maps. 
+![image](NavSetting.png)
 
 ## Sounds
-Marta processes most of the audio in the story. 
-![](images/audacity.png)
- 
+Marta processes most of the audio in the story using [Audacity](https://www.audacityteam.org/). 
+![image](audacity.png)
+
  
 ## Lightning
 Jasmin designs most of the lighting in the scenes. We have difficulty lighting up the interior scene like the bedroom and the prison. The major issue is that since we designed all of our assets by ourselves, Unity has difficulty recognizing the UV maps on the assets, which leads to uneven and strange baking lightmaps. The solution to this problem is to add more spotlights in the area which has a very wide range so that it lights up the room interiorly. The other important lesson learned is that we should never bake the lights when loaded two scene. Baking the lights for one scene with an XR scene active is so common and so deadly for the lightings in other scenes. Therefore, definitely avoid that. Jasmin has also spent time lighting up the portraits in the bedroom scene and modifies the environement light in every scene so that the colors of the assets meet our original mood pallette.
- 
-![ image](FogSettings.png)
+
+Jasmin added fog effects in Corridor and Prison scene to give a more mysterious vibe into the storytelling.  
+![image](FogSettings.png)
  
 ## Challenges
 Sth < JASMIN >

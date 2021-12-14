@@ -219,7 +219,7 @@ a. Bird Ending:
        
     }
     ```
-
+    
 
 b. Crown Ending: (Similar to bird ending in setting up)
 ![image](BirdShine.gif)
@@ -359,7 +359,7 @@ We admit that we might not be the best in scripting in C# or building in Unity, 
 
 > Glad we rushed ahead of time
 
-During the project building season, we managed to rush ahead of the plans so that we could save more time for polishing the project. Experience teaches us that here must be some time reserved for debugging. There is one time when every interaction in our project did not work one week before presentation. We are glad that we left some time for dealing with the erros and bugs and that did not happen on the day of presentation. 
+During the project building season, we managed to rush ahead of the plans so that we could save more time for polishing the project. Experience teaches us that here must be some time reserved for debugging. There is one time when every interaction in our project did not work one week before presentation. We are glad that we left some time for dealing with the errors and bugs and that did not happen on the day of presentation. 
 
 
 ![image](backstage2.png)
